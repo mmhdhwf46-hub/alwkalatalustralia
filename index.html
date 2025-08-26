@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سماعات AirPods Pro - عرض خاص</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #000;
+            --secondary: #1d3557;
+            --accent: #0071e3;
+            --light: #f1faee;
+            --text: #333;
+            --background: #f8f9fa;
+            --success: #2a9d8f;
+            --gradient: linear-gradient(135deg, #000000, #1d3557);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* الشريط العلوي */
+        header {
+            background: var(--gradient);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        /* قسم الهيرو */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 0;
+            background: var(--gradient);
+            color: white;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            color: var(--light);
+        }
+        
+        .countdown {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .countdown-text {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .countdown-unit {
+            background: var(--accent);
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 60px;
+        }
+        
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+        }
+        
+        /* قسم المنتج */
+        .product-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .product-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid #ddd;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+        
+        .product-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-right: 5px solid var(--accent);
+            padding-right: 15px;
+        }
+        
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature i {
+            color: var(--accent);
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* أسعار */
+        .pricing {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .pricing-option {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid #eee;
+        }
+        
+        .pricing-option:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.2);
+        }
+        
+        .pricing-option.selected {
+            border-color: var(--accent);
+            background: rgba(0, 113, 227, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.1);
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 10px 0;
+        }
+        
+        .free-shipping {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        /* قسم العروض */
+        .offers-section {
+            background: var(--gradient);
+            padding: 60px 0;
+            color: white;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+        
+        .offers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .offer-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .offer-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .offer-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 20px 0;
+        }
+        
+        .offer-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .offer-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* نموذج الحجز */
+        .booking-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 1px solid #ddd;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.4);
+            background: #005bb5;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        /* قسم الخصائص */
+        .features-section {
+            margin: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* التذييل */
+        footer {
+            background: var(--gradient);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .whatsapp-contact {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .whatsapp-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background: rgba(37, 211, 102, 0.2);
+            padding: 15px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .product-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .pricing-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* تخصيص شريط التمرير */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #005bb5;
+        }
+        
+        /* تأثيرات للصفحة */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-headphones"></i>
+                <span>AirPods Pro - الأقوى تورووفر</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- قسم البطل -->
+    <section class="hero">
+        <div class="container">
+            <h1>سماعات AirPods Pro</h1>
+            <p>جودة صوت استثنائية وتجربة استخدام لا مثيل لها. احصل عليها الآن بأفضل الأسعار.</p>
+            
+            <div class="countdown">
+                <div class="countdown-text">هذا العرض سينتهي خلال:</div>
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="days">02</div>
+                        <div class="countdown-label">أيام</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="hours">23</div>
+                        <div class="countdown-label">ساعات</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="minutes">59</div>
+                        <div class="countdown-label">دقائق</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="seconds">59</div>
+                        <div class="countdown-label">ثواني</div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#booking" class="btn">اطلب الآن <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+    
+    <!-- قسم المنتج -->
+    <section class="container product-section">
+        <div class="product-image">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83_AV5?wid=2000&hei=2000&fmt=jpeg&qlt=90&.v=1660803972361" alt="سماعات AirPods Pro">
+        </div>
+        
+        <div class="product-info">
+            <h2 class="product-title">AirPods Pro - الجيل الثاني</h2>
+            <p class="product-description">
+                استمتع بتجربة صوتية استثنائية مع سماعات AirPods Pro. جودة صوت عالية، عزل للضجيج، وتصميم مريح للاستخدام اليومي. مثالية للعمل، الرياضة، والترفيه.
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>تقنية Active Noise Cancellation</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>مقاومة للماء والعرق (IPX4)</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>بطارية تعمل حتى 6 ساعات</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>شحن لاسلكي</span>
+                </div>
+            </div>
+            
+            <div class="pricing">
+                <h3 class="pricing-title">
+                    <i class="fas fa-tags"></i>
+                    اختر العرض المناسب لك
+                </h3>
+                <div class="pricing-options">
+                    <div class="pricing-option" onclick="selectOption(this)">
+                        <div>قطعة واحدة</div>
+                        <div class="price">10,000 دينار</div>
+                        <div>التوصيل مجاني</div>
+                    </div>
+                    <div class="pricing-option" onclick="selectOption(this)">
+                        <div>قطعتين</div>
+                        <div class="price">21,000 دينار</div>
+                        <div>التوصيل مجاني</div>
+                    </div>
+                </div>
+                <div class="free-shipping">
+                    <i class="fas fa-truck"></i> التوصيل مجاني لجميع أنحاء البلاد
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم العروض -->
+    <section class="offers-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">عروض خاصة</h2>
+            
+            <div class="offers-container">
+                <div class="offer-card">
+                    <h3>عرض القطعة الواحدة</h3>
+                    <div class="offer-price">10,000 دينار</div>
+                    <ul class="offer-features">
+                        <li><i class="fas fa-check"></i> سماعات AirPods Pro أصلية</li>
+                        <li><i class="fas fa-check"></i> ضمان لمدة سنة</li>
+                        <li><i class="fas fa-check"></i> التوصيل مجاني</li>
+                        <li><i class="fas fa-check"></i> دعم فني متواصل</li>
+                    </ul>
+                    <a href="#booking" class="btn">اختر هذا العرض</a>
+                </div>
+                
+                <div class="offer-card">
+                    <h3>عرض خاص</h3>
+                    <div class="offer-price">12,000 دينار</div>
+                    <div style="margin: 15px 0; font-size: 1.2rem;">لقطعتين معاً</div>
+                    <ul class="offer-features">
+                        <li><i class="fas fa-check"></i> زوجين من السماعات</li>
+                        <li><i class="fas fa-check"></i> توفير 8,000 دينار</li>
+                        <li><i class="fas fa-check"></i> التوصيل مجاني</li>
+                        <li><i class="fas fa-check"></i> هدية مجانية مع الطلب</li>
+                    </ul>
+                    <a href="#booking" class="btn">اختر هذا العرض</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- نموذج الحجز -->
+    <section id="booking" class="container booking-form">
+        <h2 class="form-title">
+            <i class="fas fa-shopping-cart"></i>
+            نموذج طلب الشراء
+        </h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">الاسم الكامل</label>
+                <input type="text" id="name" placeholder="يرجى إدخال الاسم الكامل" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">رقم الهاتف</label>
+                <input type="tel" id="phone" placeholder="يرجى إدخال رقم الهاتف" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">العنوان التفصيلي</label>
+                <textarea id="address" rows="3" placeholder="يرجى إدخال العنوان التفصيلي للتوصيل" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="quantity">الكمية المطلوبة</label>
+                <select id="quantity" required>
+                    <option value="">اختر الكمية</option>
+                    <option value="1">1 قطعة - 10,000 دينار</option>
+                    <option value="2">2 قطعة - 21,000 دينار</option>
+                    <option value="special">عرض خاص: قطعتين - 12,000 دينار</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">ملاحظات إضافية (اختياري)</label>
+                <textarea id="notes" rows="2" placeholder="أي ملاحظات أو طلبات خاصة"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-block">تأكيد الطلب <i class="fas fa-paper-plane"></i></button>
+        </form>
+    </section>
+    
+    <!-- قسم الميزات -->
+    <section class="container features-section">
+        <h2 class="section-title">لماذا تختار AirPods Pro؟</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-volume-up"></i>
+                <h3>جودة صوت استثنائية</h3>
+                <p>مكبرات صوت عالية الدقة توفر صوتاً واضحاً ونقياً في جميع الترددات</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-noise-reduction"></i>
+                <h3>عزل الضوضاء</h3>
+                <p>تقنية Active Noise Cancellation تتكيف مع بيئتك لتعزل الضوضاء المحيطة</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-tint"></i>
+                <h3>مقاومة للماء</h3>
+                <p>تصميم مقاوم للماء والعرق (IPX4) مثالي للرياضة والاستخدام اليومي</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-battery-full"></i>
+                <h3>بطارية طويلة الأمد</h3>
+                <p>بطارية تعمل حتى 6 ساعات مع شحن سريع وشحن لاسلكي</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="whatsapp-contact">
+                <h3>للحجز والاستفسار عبر واتساب:</h3>
+                <div class="whatsapp-number">
+                    <i class="fab fa-whatsapp"></i> 3734 - 3777
+                </div>
+                <p>متاحون للرد على استفساراتكم من الساعة 9 صباحاً حتى 9 مساءً</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">شروط الخدمة</a>
+                <a href="#">اتصل بنا</a>
+            </div>
+            <p>© 2023 AirPods Pro - الأقوى تورووفر. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+    
+    <script>
+        // دالة اختيار خيار السعر
+        function selectOption(element) {
+            // إزالة التحديد من جميع الخيارات
+            document.querySelectorAll('.pricing-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // إضافة التحديد للخيار المختار
+            element.classList.add('selected');
+            
+            // تحديث القائمة المنسدلة للكمية
+            const quantitySelect = document.getElementById('quantity');
+            const selectedText = element.querySelector('div:first-child').textContent;
+            
+            for (let i = 0; i < quantitySelect.options.length; i++) {
+                if (quantitySelect.options[i].text.includes(selectedText)) {
+                    quantitySelect.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+        
+        // معالجة إرسال النموذج
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // جمع بيانات النموذج
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                quantity: document.getElementById('quantity').value,
+                notes: document.getElementById('notes').value
+            };
+            
+            // إنشاء رسالة للواتساب
+            const message = `طلب جديد لسماعات AirPods Pro%0A%0Aالاسم: ${formData.name}%0Aالهاتف: ${formData.phone}%0Aالعنوان: ${formData.address}%0Aالكمية: ${formData.quantity}%0Aملاحظات: ${formData.notes || 'لا يوجد'}`;
+            
+            // فتح الواتساب
+            window.open(`https://wa.me/37343777?text=${message}`, '_blank');
+            
+            // عرض رسالة نجاح
+            alert('تم إعداد رسالتك على الواتساب. سيتم التواصل معك قريباً لتأكيد الطلب.');
+            
+            // إعادة تعيين النموذج
+            this.reset();
+            
+            // إزالة التحديد من خيارات الأسعار
+            document.querySelectorAll('.pricing-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+        });
+        
+        // عداد التنازلي
+        function updateCountdown() {
+            const now = new Date();
+            const targetDate = new Date();
+            targetDate.setDate(now.getDate() + 2);
+            targetDate.setHours(23, 59, 59, 999);
+            
+            const difference = targetDate - now;
+            
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.querySelector('.countdown').innerHTML = '<div class="countdown-text">انتهى العرض</div>';
+            }
+        }
+        
+        // تحديث العداد كل ثانية
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // تأثيرات عند التمرير
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.feature-card, .product-image, .pricing, .offer-card');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // إذا كان العنصر في منتصف الشاشة
+                if (position.top < window.innerHeight - 100) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // تهيئة العناصر لتفعيل الأنيميشن عند التمرير
+        document.querySelectorAll('.feature-card, .product-image, .pricing, .offer-card').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        // تشغيل الأنيميشن عند تحميل الصفحة
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
