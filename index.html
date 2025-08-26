@@ -13,894 +13,721 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سماعات AirPods Pro - عرض خاص</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>الوكالة الأسترالية - شامبو مكافحة الصلع</title>
     <style>
-        :root {
-            --primary: #000;
-            --secondary: #1d3557;
-            --accent: #0071e3;
-            --light: #f1faee;
-            --text: #333;
-            --background: #f8f9fa;
-            --success: #2a9d8f;
-            --gradient: linear-gradient(135deg, #000000, #1d3557);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;800&display=swap');
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: var(--background);
-            color: var(--text);
-            min-height: 100vh;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: #fff;
             overflow-x: hidden;
-            line-height: 1.6;
         }
-        
+
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
-        
-        /* الشريط العلوي */
-        header {
-            background: var(--gradient);
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #FFD700;
         }
-        
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo {
             font-size: 28px;
-            font-weight: bold;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
+            animation: glow 2s ease-in-out infinite alternate;
         }
-        
-        .logo i {
-            color: var(--accent);
-        }
-        
-        /* قسم الهيرو */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 0;
-            background: var(--gradient);
-            color: white;
-            border-radius: 0 0 20px 20px;
-            margin-bottom: 40px;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin-bottom: 30px;
-            color: var(--light);
-        }
-        
-        .countdown {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            border-radius: 10px;
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-        }
-        
-        .countdown-text {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        
-        .countdown-timer {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-        
-        .countdown-unit {
-            background: var(--accent);
-            padding: 10px;
-            border-radius: 5px;
-            min-width: 60px;
-        }
-        
-        .countdown-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-        }
-        
-        /* قسم المنتج */
-        .product-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 60px 0;
-        }
-        
-        .product-image {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border: 1px solid #ddd;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-        }
-        
-        .product-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s;
-        }
-        
-        .product-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            border-right: 5px solid var(--accent);
-            padding-right: 15px;
-        }
-        
-        .product-description {
-            margin-bottom: 30px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        
-        .features {
-            margin-bottom: 30px;
-        }
-        
-        .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .feature i {
-            color: var(--accent);
+
+        .lightning {
+            color: #FFD700;
+            font-size: 32px;
             margin-left: 10px;
-            font-size: 1.2rem;
+            filter: drop-shadow(0 0 10px #FFD700);
+            animation: pulse 1.5s infinite;
         }
-        
-        /* أسعار */
-        .pricing {
-            background-color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border: 1px solid #ddd;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700; }
+            to { text-shadow: 0 0 25px #FFD700, 0 0 40px #FFD700; }
         }
-        
-        .pricing-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .nav-menu {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .pricing-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-        
-        .pricing-option {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid #eee;
-        }
-        
-        .pricing-option:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.2);
-        }
-        
-        .pricing-option.selected {
-            border-color: var(--accent);
-            background: rgba(0, 113, 227, 0.05);
-            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.1);
-        }
-        
-        .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--accent);
-            margin: 10px 0;
-        }
-        
-        .free-shipping {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-            color: var(--success);
-            font-weight: bold;
-        }
-        
-        /* قسم العروض */
-        .offers-section {
-            background: var(--gradient);
-            padding: 60px 0;
-            color: white;
-            border-radius: 20px;
-            margin: 60px 0;
-        }
-        
-        .offers-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            list-style: none;
             gap: 30px;
         }
-        
-        .offer-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s;
-        }
-        
-        .offer-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .offer-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .offer-price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            margin: 20px 0;
-        }
-        
-        .offer-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .offer-features li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        /* نموذج الحجز */
-        .booking-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0;
-            border: 1px solid #ddd;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-title {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: var(--primary);
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--primary);
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            color: var(--text);
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
+
+        .nav-menu a {
+            color: #fff;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.4);
-            background: #005bb5;
-        }
-        
-        .btn-whatsapp {
-            background: #25D366;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-        
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        /* قسم الخصائص */
-        .features-section {
-            margin: 60px 0;
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary);
+            font-weight: 600;
+            transition: all 0.3s ease;
             position: relative;
-            padding-bottom: 15px;
         }
-        
-        .section-title::after {
+
+        .nav-menu a:hover {
+            color: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a::after {
             content: '';
             position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFD700;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://up6.cc/2025/08/175623200963351.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 70%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFF, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            animation: slideInUp 1s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: #FFD700;
+            position: relative;
+        }
+
+        .features h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: var(--accent);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
             border-radius: 2px;
         }
-        
+
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
-        
+
         .feature-card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
-            border: 1px solid #ddd;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
         }
-        
-        .feature-card i {
-            font-size: 3rem;
-            color: var(--accent);
+
+        .feature-icon {
+            font-size: 4rem;
+            color: #FFD700;
             margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px #FFD700);
         }
-        
+
         .feature-card h3 {
             font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: #FFD700;
         }
-        
-        /* التذييل */
-        footer {
-            background: var(--gradient);
+
+        .feature-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* Order Section */
+        .order-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .order-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: #FFD700;
+        }
+
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 18px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
             padding: 40px 0;
             text-align: center;
-            margin-top: 60px;
-            color: white;
+            border-top: 2px solid #FFD700;
         }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
+
+        .footer p {
+            color: #ccc;
+            font-size: 1rem;
         }
-        
-        .footer-links a {
-            color: var(--light);
-            text-decoration: none;
-            transition: color 0.3s;
+
+        .footer .lightning {
+            margin: 0 10px;
         }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .whatsapp-contact {
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .whatsapp-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            background: rgba(37, 211, 102, 0.2);
-            padding: 15px 30px;
-            border-radius: 30px;
-            display: inline-block;
-            margin: 10px 0;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 992px) {
-            .product-section {
-                grid-template-columns: 1fr;
-            }
-            
+
+        /* Responsive */
+        @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .features h2,
+            .order-section h2 {
                 font-size: 2rem;
             }
             
-            .pricing-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .countdown-timer {
-                flex-wrap: wrap;
+            .order-form {
+                margin: 0 20px;
+                padding: 30px;
             }
         }
-        
-        /* تخصيص شريط التمرير */
-        ::-webkit-scrollbar {
-            width: 10px;
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-top: 3px solid #FFD700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #005bb5;
-        }
-        
-        /* تأثيرات للصفحة */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate {
-            animation: fadeIn 1s ease-out;
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- الشريط العلوي -->
-    <header>
-        <div class="container">
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p style="color: #FFD700; margin-top: 20px; font-size: 1.2rem;">جاري معالجة طلبك...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
             <div class="logo">
-                <i class="fas fa-headphones"></i>
-                <span>AirPods Pro - الأقوى تورووفر</span>
+                الوكالة الأسترالية <span class="lightning">⚡</span>
             </div>
-        </div>
+            <ul class="nav-menu">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#order">اطلب الآن</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <!-- قسم البطل -->
-    <section class="hero">
-        <div class="container">
-            <h1>سماعات AirPods Pro</h1>
-            <p>جودة صوت استثنائية وتجربة استخدام لا مثيل لها. احصل عليها الآن بأفضل الأسعار.</p>
-            
-            <div class="countdown">
-                <div class="countdown-text">هذا العرض سينتهي خلال:</div>
-                <div class="countdown-timer">
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="days">02</div>
-                        <div class="countdown-label">أيام</div>
-                    </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="hours">23</div>
-                        <div class="countdown-label">ساعات</div>
-                    </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="minutes">59</div>
-                        <div class="countdown-label">دقائق</div>
-                    </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="seconds">59</div>
-                        <div class="countdown-label">ثواني</div>
-                    </div>
-                </div>
-            </div>
-            
-            <a href="#booking" class="btn">اطلب الآن <i class="fas fa-arrow-left"></i></a>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>شامبو الكثافة الذهبي <span class="lightning">⚡</span></h1>
+            <p>الحل الثوري لمكافحة الصلع وتكثيف الشعر من أستراليا</p>
+            <a href="#order" class="cta-button">احصل عليه الآن</a>
         </div>
     </section>
-    
-    <!-- قسم المنتج -->
-    <section class="container product-section">
-        <div class="product-image">
-            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83_AV5?wid=2000&hei=2000&fmt=jpeg&qlt=90&.v=1660803972361" alt="سماعات AirPods Pro">
-        </div>
-        
-        <div class="product-info">
-            <h2 class="product-title">AirPods Pro - الجيل الثاني</h2>
-            <p class="product-description">
-                استمتع بتجربة صوتية استثنائية مع سماعات AirPods Pro. جودة صوت عالية، عزل للضجيج، وتصميم مريح للاستخدام اليومي. مثالية للعمل، الرياضة، والترفيه.
-            </p>
-            
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>تقنية Active Noise Cancellation</span>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>لماذا شامبونا الأفضل؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>تركيبة علمية متطورة</h3>
+                    <p>مطور في أستراليا بأحدث التقنيات العلمية لتحفيز نمو الشعر ومنع تساقطه</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>مقاومة للماء والعرق (IPX4)</span>
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>نتائج مضمونة</h3>
+                    <p>زيادة كثافة الشعر بنسبة 85% خلال 30 يوماً أو استرداد كامل للمبلغ</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>بطارية تعمل حتى 6 ساعات</span>
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>طبيعي 100%</h3>
+                    <p>مكونات طبيعية من النباتات الأسترالية النادرة، خالي من المواد الكيميائية الضارة</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>شحن لاسلكي</span>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>سريع المفعول</h3>
+                    <p>نتائج ملحوظة من الاستخدام الأول، تحسن واضح خلال أسبوعين</p>
                 </div>
-            </div>
-            
-            <div class="pricing">
-                <h3 class="pricing-title">
-                    <i class="fas fa-tags"></i>
-                    اختر العرض المناسب لك
-                </h3>
-                <div class="pricing-options">
-                    <div class="pricing-option" onclick="selectOption(this)">
-                        <div>قطعة واحدة</div>
-                        <div class="price">10,000 دينار</div>
-                        <div>التوصيل مجاني</div>
-                    </div>
-                    <div class="pricing-option" onclick="selectOption(this)">
-                        <div>قطعتين</div>
-                        <div class="price">21,000 دينار</div>
-                        <div>التوصيل مجاني</div>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>حائز على جوائز</h3>
+                    <p>الحاصل على جائزة أفضل منتج للعناية بالشعر في أستراليا لعام 2024</p>
                 </div>
-                <div class="free-shipping">
-                    <i class="fas fa-truck"></i> التوصيل مجاني لجميع أنحاء البلاد
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>آمن للجميع</h3>
+                    <p>مناسب لجميع أنواع الشعر والبشرة، تم اختباره طبياً ومعتمد دولياً</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- قسم العروض -->
-    <section class="offers-section">
+
+    <!-- Order Section -->
+    <section id="order" class="order-section">
         <div class="container">
-            <h2 class="section-title" style="color: white;">عروض خاصة</h2>
-            
-            <div class="offers-container">
-                <div class="offer-card">
-                    <h3>عرض القطعة الواحدة</h3>
-                    <div class="offer-price">10,000 دينار</div>
-                    <ul class="offer-features">
-                        <li><i class="fas fa-check"></i> سماعات AirPods Pro أصلية</li>
-                        <li><i class="fas fa-check"></i> ضمان لمدة سنة</li>
-                        <li><i class="fas fa-check"></i> التوصيل مجاني</li>
-                        <li><i class="fas fa-check"></i> دعم فني متواصل</li>
-                    </ul>
-                    <a href="#booking" class="btn">اختر هذا العرض</a>
+            <h2>اطلب شامبو الكثافة الذهبي <span class="lightning">⚡</span></h2>
+            <form class="order-form" id="orderForm">
+                <div class="form-group">
+                    <label for="name">الاسم الكامل *</label>
+                    <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
                 </div>
                 
-                <div class="offer-card">
-                    <h3>عرض خاص</h3>
-                    <div class="offer-price">12,000 دينار</div>
-                    <div style="margin: 15px 0; font-size: 1.2rem;">لقطعتين معاً</div>
-                    <ul class="offer-features">
-                        <li><i class="fas fa-check"></i> زوجين من السماعات</li>
-                        <li><i class="fas fa-check"></i> توفير 8,000 دينار</li>
-                        <li><i class="fas fa-check"></i> التوصيل مجاني</li>
-                        <li><i class="fas fa-check"></i> هدية مجانية مع الطلب</li>
-                    </ul>
-                    <a href="#booking" class="btn">اختر هذا العرض</a>
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك">
                 </div>
-            </div>
+                
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">العنوان الكامل *</label>
+                    <textarea id="address" name="address" rows="3" required placeholder="أدخل عنوانك بالتفصيل للتوصيل"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantity">الكمية *</label>
+                    <select id="quantity" name="quantity" required>
+                        <option value="">اختر الكمية</option>
+                        <option value="1">1 عبوة - 150 ريال</option>
+                        <option value="2">2 عبوة - 280 ريال (وفر 20 ريال)</option>
+                        <option value="3">3 عبوات - 400 ريال (وفر 50 ريال)</option>
+                        <option value="5">5 عبوات - 650 ريال (وفر 100 ريال)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hairType">نوع الشعر</label>
+                    <select id="hairType" name="hairType">
+                        <option value="">اختر نوع شعرك</option>
+                        <option value="دهني">دهني</option>
+                        <option value="جاف">جاف</option>
+                        <option value="مختلط">مختلط</option>
+                        <option value="عادي">عادي</option>
+                        <option value="تالف">تالف</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="baldnessLevel">درجة الصلع</label>
+                    <select id="baldnessLevel" name="baldnessLevel">
+                        <option value="">اختر الدرجة</option>
+                        <option value="خفيف">تساقط خفيف</option>
+                        <option value="متوسط">تساقط متوسط</option>
+                        <option value="شديد">تساقط شديد</option>
+                        <option value="صلع جزئي">صلع جزئي</option>
+                        <option value="صلع متقدم">صلع متقدم</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">ملاحظات إضافية</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="أي ملاحظات أو تعليمات خاصة للتوصيل"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    اطلب الآن - توصيل مجاني <span class="lightning">⚡</span>
+                </button>
+            </form>
         </div>
     </section>
-    
-    <!-- نموذج الحجز -->
-    <section id="booking" class="container booking-form">
-        <h2 class="form-title">
-            <i class="fas fa-shopping-cart"></i>
-            نموذج طلب الشراء
-        </h2>
-        <form id="orderForm">
-            <div class="form-group">
-                <label for="name">الاسم الكامل</label>
-                <input type="text" id="name" placeholder="يرجى إدخال الاسم الكامل" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">رقم الهاتف</label>
-                <input type="tel" id="phone" placeholder="يرجى إدخال رقم الهاتف" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="address">العنوان التفصيلي</label>
-                <textarea id="address" rows="3" placeholder="يرجى إدخال العنوان التفصيلي للتوصيل" required></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="quantity">الكمية المطلوبة</label>
-                <select id="quantity" required>
-                    <option value="">اختر الكمية</option>
-                    <option value="1">1 قطعة - 10,000 دينار</option>
-                    <option value="2">2 قطعة - 21,000 دينار</option>
-                    <option value="special">عرض خاص: قطعتين - 12,000 دينار</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="notes">ملاحظات إضافية (اختياري)</label>
-                <textarea id="notes" rows="2" placeholder="أي ملاحظات أو طلبات خاصة"></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-block">تأكيد الطلب <i class="fas fa-paper-plane"></i></button>
-        </form>
-    </section>
-    
-    <!-- قسم الميزات -->
-    <section class="container features-section">
-        <h2 class="section-title">لماذا تختار AirPods Pro؟</h2>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-volume-up"></i>
-                <h3>جودة صوت استثنائية</h3>
-                <p>مكبرات صوت عالية الدقة توفر صوتاً واضحاً ونقياً في جميع الترددات</p>
-            </div>
-            
-            <div class="feature-card">
-                <i class="fas fa-noise-reduction"></i>
-                <h3>عزل الضوضاء</h3>
-                <p>تقنية Active Noise Cancellation تتكيف مع بيئتك لتعزل الضوضاء المحيطة</p>
-            </div>
-            
-            <div class="feature-card">
-                <i class="fas fa-tint"></i>
-                <h3>مقاومة للماء</h3>
-                <p>تصميم مقاوم للماء والعرق (IPX4) مثالي للرياضة والاستخدام اليومي</p>
-            </div>
-            
-            <div class="feature-card">
-                <i class="fas fa-battery-full"></i>
-                <h3>بطارية طويلة الأمد</h3>
-                <p>بطارية تعمل حتى 6 ساعات مع شحن سريع وشحن لاسلكي</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- التذييل -->
-    <footer>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="whatsapp-contact">
-                <h3>للحجز والاستفسار عبر واتساب:</h3>
-                <div class="whatsapp-number">
-                    <i class="fab fa-whatsapp"></i> 3734 - 3777
-                </div>
-                <p>متاحون للرد على استفساراتكم من الساعة 9 صباحاً حتى 9 مساءً</p>
-            </div>
-            
-            <div class="footer-links">
-                <a href="#">سياسة الخصوصية</a>
-                <a href="#">شروط الخدمة</a>
-                <a href="#">اتصل بنا</a>
-            </div>
-            <p>© 2023 AirPods Pro - الأقوى تورووفر. جميع الحقوق محفوظة</p>
+            <p>&copy; 2025 الوكالة الأسترالية <span class="lightning">⚡</span> جميع الحقوق محفوظة</p>
+            <p>منتج أسترالي أصلي - ضمان الجودة والفعالية</p>
         </div>
     </footer>
-    
+
     <script>
-        // دالة اختيار خيار السعر
-        function selectOption(element) {
-            // إزالة التحديد من جميع الخيارات
-            document.querySelectorAll('.pricing-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            
-            // إضافة التحديد للخيار المختار
-            element.classList.add('selected');
-            
-            // تحديث القائمة المنسدلة للكمية
-            const quantitySelect = document.getElementById('quantity');
-            const selectedText = element.querySelector('div:first-child').textContent;
-            
-            for (let i = 0; i < quantitySelect.options.length; i++) {
-                if (quantitySelect.options[i].text.includes(selectedText)) {
-                    quantitySelect.selectedIndex = i;
-                    break;
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            }
-        }
-        
-        // معالجة إرسال النموذج
+            });
+        });
+
+        // Form validation and submission
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // جمع بيانات النموذج
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                address: document.getElementById('address').value,
-                quantity: document.getElementById('quantity').value,
-                notes: document.getElementById('notes').value
+            // Show loading animation
+            document.getElementById('loading').style.display = 'flex';
+            
+            // Get form data
+            const formData = new FormData(this);
+            const orderData = {};
+            for (let [key, value] of formData.entries()) {
+                orderData[key] = value;
+            }
+            
+            // Simulate form processing
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                
+                // Show success message
+                alert(`🎉 تم استلام طلبك بنجاح!\n\nالاسم: ${orderData.name}\nالهاتف: ${orderData.phone}\nالكمية: ${orderData.quantity || 'غير محدد'}\n\nسيتم التواصل معك خلال 24 ساعة لتأكيد الطلب وترتيب التوصيل.\n\n⚡ شكراً لثقتك في الوكالة الأسترالية`);
+                
+                // Reset form
+                this.reset();
+            }, 2000);
+        });
+
+        // Dynamic price calculation
+        document.getElementById('quantity').addEventListener('change', function() {
+            const quantity = this.value;
+            const prices = {
+                '1': '150 ريال',
+                '2': '280 ريال (وفر 20 ريال)',
+                '3': '400 ريال (وفر 50 ريال)',
+                '5': '650 ريال (وفر 100 ريال)'
             };
             
-            // إنشاء رسالة للواتساب
-            const message = `طلب جديد لسماعات AirPods Pro%0A%0Aالاسم: ${formData.name}%0Aالهاتف: ${formData.phone}%0Aالعنوان: ${formData.address}%0Aالكمية: ${formData.quantity}%0Aملاحظات: ${formData.notes || 'لا يوجد'}`;
-            
-            // فتح الواتساب
-            window.open(`https://wa.me/37343777?text=${message}`, '_blank');
-            
-            // عرض رسالة نجاح
-            alert('تم إعداد رسالتك على الواتساب. سيتم التواصل معك قريباً لتأكيد الطلب.');
-            
-            // إعادة تعيين النموذج
-            this.reset();
-            
-            // إزالة التحديد من خيارات الأسعار
-            document.querySelectorAll('.pricing-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-        });
-        
-        // عداد التنازلي
-        function updateCountdown() {
-            const now = new Date();
-            const targetDate = new Date();
-            targetDate.setDate(now.getDate() + 2);
-            targetDate.setHours(23, 59, 59, 999);
-            
-            const difference = targetDate - now;
-            
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-                
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            const submitBtn = document.querySelector('.submit-btn');
+            if (quantity && prices[quantity]) {
+                submitBtn.innerHTML = `اطلب الآن - ${prices[quantity]} <span class="lightning">⚡</span>`;
             } else {
-                document.querySelector('.countdown').innerHTML = '<div class="countdown-text">انتهى العرض</div>';
+                submitBtn.innerHTML = 'اطلب الآن - توصيل مجاني <span class="lightning">⚡</span>';
             }
-        }
-        
-        // تحديث العداد كل ثانية
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // تأثيرات عند التمرير
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.feature-card, .product-image, .pricing, .offer-card');
-            
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect();
-                
-                // إذا كان العنصر في منتصف الشاشة
-                if (position.top < window.innerHeight - 100) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
+        });
+
+        // Add floating animation to feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideInUp 0.8s ease-out';
+                    entry.target.style.opacity = '1';
                 }
             });
+        }, observerOptions);
+
+        // Observe feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
         });
-        
-        // تهيئة العناصر لتفعيل الأنيميشن عند التمرير
-        document.querySelectorAll('.feature-card, .product-image, .pricing, .offer-card').forEach(element => {
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
         });
-        
-        // تشغيل الأنيميشن عند تحميل الصفحة
-        window.dispatchEvent(new Event('scroll'));
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value.startsWith('966')) {
+                    value = '+' + value;
+                } else if (value.startsWith('05')) {
+                    value = '+966' + value.substring(1);
+                } else if (value.startsWith('5')) {
+                    value = '+966' + value;
+                }
+            }
+            e.target.value = value;
+        });
+
+        // Add particle effect on hover for CTA button
+        document.querySelector('.cta-button').addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4)';
+        });
+
+        document.querySelector('.cta-button').addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0 10px 30px rgba(255, 215, 0, 0.3)';
+        });
     </script>
 </body>
 </html>
